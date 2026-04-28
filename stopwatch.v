@@ -3,9 +3,10 @@ module stopwatch(
     input clk,
     input rst,
     input en,
-    output reg [5:0] state      // 6-bit register (D flip-flops)
+    output reg [5:0] state      // 6-bit register to represent highest number (59)
 );
-    // This always block represents sequential logic (flip-flops)
+    // Always block represents sequential logic (flip-flops) 
+    //Async reset to 0, en the counter; wraps 59 to 0
     always @(posedge clk or posedge rst) begin
         if (rst)
             state <= 6'd0;          // reset to 0
